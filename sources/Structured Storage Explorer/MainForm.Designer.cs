@@ -366,7 +366,6 @@
             this.dgvUserDefinedProperties.Name = "dgvUserDefinedProperties";
             this.dgvUserDefinedProperties.Size = new System.Drawing.Size(553, 187);
             this.dgvUserDefinedProperties.TabIndex = 1;
-            this.dgvUserDefinedProperties.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUserDefinedProperties_CellContentClick);
             // 
             // MainForm
             // 
