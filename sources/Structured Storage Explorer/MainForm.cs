@@ -417,6 +417,7 @@ namespace StructuredStorageExplorer
 
                 // The tag property contains the underlying CFItem.
                 CFItem target = (CFItem)n.Tag;
+                CFStream stream = n.Tag as CFStream;
 
                 if (target.IsStream)
                 {
@@ -425,8 +426,23 @@ namespace StructuredStorageExplorer
                     importDataStripMenuItem1.Enabled = true;
                     exportDataToolStripMenuItem.Enabled = true;
 
-#if OLE_PROPERTY
-                    if (target.Name == "\u0005SummaryInformation" || target.Name == "\u0005DocumentSummaryInformation")
+#if OLE_PROPERTY    
+                    if (target.Name == "Mobile_Property_Info")
+                    {
+                        PropertySetMobilePropertyInfo mi = new PropertySetMobilePropertyInfo();
+                        byte[] by = stream.GetData();
+                        Stream sy = new MemoryStream(by);
+                        BinaryReader br = new BinaryReader(sy);
+                        mi.Read(br);
+
+                          DataTable ds = new DataTable();
+
+                        ds.Columns.Add("Name", typeof(String));
+                        ds.Columns.Add("Type", typeof(String));
+                        ds.Columns.Add("Value", typeof(String));
+                    }
+
+                        if (target.Name == "Mobile_Property_Info" || target.Name == "\u0005SummaryInformation" || target.Name == "\u0005DocumentSummaryInformation")
                     {
                         OLEPropertiesContainer c = ((CFStream)target).AsOLEPropertiesContainer();
 
@@ -576,6 +592,9 @@ namespace StructuredStorageExplorer
             CloseCurrentFile();
         }
 
+        private void dgvUserDefinedProperties_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
+        }
     }
 }
