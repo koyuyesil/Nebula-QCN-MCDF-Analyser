@@ -45,31 +45,6 @@ namespace StructuredStorageExplorer
 
         }
         
-        private bool canUpdate = false;
-        private void CreateNewFile()
-        {
-            CloseCurrentFile();
-
-            cf = new CompoundFile();
-            canUpdate = false;
-            saveAsToolStripMenuItem.Enabled = true;
-
-            updateCurrentFileToolStripMenuItem.Enabled = false;
-
-            RefreshTree();
-        }
-        private void RefreshTree()
-        {
-            treeView1.Nodes.Clear();
-
-            TreeNode root = null;
-            root = treeView1.Nodes.Add("Root Entry", "Root");
-            root.ImageIndex = 0;
-            root.Tag = cf.RootStorage;
-
-            //Recursive function to get all storage and streams
-            AddNodes(root, cf.RootStorage);
-        } 
         private void exportDataToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //No export if storage
@@ -265,6 +240,19 @@ namespace StructuredStorageExplorer
                 }
             }
         }
+        private bool canUpdate = false;
+        private void CreateNewFile()
+        {
+            CloseCurrentFile();
+
+            cf = new CompoundFile();
+            canUpdate = false;
+            saveAsToolStripMenuItem.Enabled = true;
+
+            updateCurrentFileToolStripMenuItem.Enabled = false;
+
+            RefreshTree();
+        }
         private void OpenFile()
         {
             if (!String.IsNullOrEmpty(openFileDialog1.FileName))
@@ -282,13 +270,7 @@ namespace StructuredStorageExplorer
         private void LoadFile(string fileName, bool enableCommit)
         {
 
-            FileStream fileStream = new FileStream(
-                            fileName,
-                            FileMode.Open,
-                            enableCommit ?
-                                FileAccess.ReadWrite
-                                : FileAccess.Read
-                            );
+            FileStream fileStream = new FileStream(fileName, FileMode.Open, enableCommit ? FileAccess.ReadWrite : FileAccess.Read);
             fs = fileStream;
 
             try
@@ -309,6 +291,11 @@ namespace StructuredStorageExplorer
                 {
                     cf = new CompoundFile(fs);
                 }
+                string s1 = cf.RootStorage.Name;
+                int s2 = cf.GetNumDirectories();
+
+                // burda kaldık
+
 
                 RefreshTree();
             }
@@ -318,6 +305,18 @@ namespace StructuredStorageExplorer
                 fileNameLabel.Text = String.Empty;
                 MessageBox.Show("Internal error: " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }     
+        private void RefreshTree()
+        {
+            treeView1.Nodes.Clear();
+
+            TreeNode root = null;
+            root = treeView1.Nodes.Add("Root Entry", "Root");
+            root.ImageIndex = 0;
+            root.Tag = cf.RootStorage;
+
+            //Recursive function to get all storage and streams
+            AddNodes(root, cf.RootStorage);
         }
         private void AddNodes(TreeNode node, CFStorage cfs)
         {

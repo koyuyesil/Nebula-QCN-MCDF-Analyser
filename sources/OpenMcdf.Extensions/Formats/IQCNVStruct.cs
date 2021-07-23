@@ -10,7 +10,13 @@ namespace OpenMcdf.Extensions.Formats
     {
         public byte[] FileVersion { get; set; }
 
+        // 3*2 bytes integers
+
         public byte[] FeatureMask { get; set; }
+        // first two bytes skip(header)
+        // folowing bytes convert bit
+        // flipped bits items ordering
+        // 7 6 5 4 3 2 1 0 - 15 14 13 12 11 10 9 8 - 23 22 21 20 19 18 17 16 
 
         public byte[] MobilePropertyInfo { get; set; }
 
