@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# CS1591: Genel olarak görülebilir tür veya üye için eksik XML açıklaması
+dotnet_diagnostic.CS1591.severity = suggestion

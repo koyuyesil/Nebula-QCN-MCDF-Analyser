@@ -14,6 +14,7 @@ using System.Globalization;
 using StructuredStorageExplorer.Properties;
 using Be.Windows.Forms;
 using OpenMcdf.Extensions;
+using OpenMcdf.Extensions.Formats;
 using System.Linq;
 using System.Collections;
 
@@ -291,23 +292,11 @@ namespace StructuredStorageExplorer
                 {
                     cf = new CompoundFile(fs);
                 }
-                int i1 = cf.GetNumDirectories();
-                byte[] i2 = cf.GetDataBySID(5);
-                string root = cf.RootStorage.Name;
-                string namss = cf.GetNameDirEntry(5);
 
-         
-                
+                QCN qCn = new QCN();
+                qCn.LoadFromCompoundFile(cf);
 
-                List<CFItem> fVer = (List<CFItem>)cf.GetAllNamedEntries("File_Version");
-                List<CFItem> fMask = (List<CFItem>)cf.GetAllNamedEntries("Feature_Mask");
-                List<CFItem> mProp = (List<CFItem>)cf.GetAllNamedEntries("Mobile_Property_Info");
-                CFStream stream = mProp[0] as CFStream;
-                byte[] MPROPd = stream.GetData();
-
-                List<CFItem> NvItemArray = (List<CFItem>)cf.GetAllNamedEntries("NV_ITEM_ARRAY");
-                List<CFItem> NvItemArray1 = (List<CFItem>)cf.GetAllNamedEntries("NV_ITEM_ARRAY_SIM_1");
-                List<CFItem> NvItemArray2 = (List<CFItem>)cf.GetAllNamedEntries("NV_ITEM_ARRAY_SIM_2");
+      
 
 
 

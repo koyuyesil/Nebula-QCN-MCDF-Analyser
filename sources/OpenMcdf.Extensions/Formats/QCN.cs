@@ -4,7 +4,7 @@ using System.Text;
 
 namespace OpenMcdf.Extensions.Formats
 {
-    class QCN:IQCNVStruct
+    public class QCN:IQCNVStruct
     {
 
     }
