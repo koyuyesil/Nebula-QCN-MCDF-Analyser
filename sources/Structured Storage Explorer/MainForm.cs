@@ -292,14 +292,18 @@ namespace StructuredStorageExplorer
                 {
                     cf = new CompoundFile(fs);
                 }
-
+                //////////////
+                //////////////
+                //////////////
+                
+              
                 QCN qCn = new QCN();
                 qCn.LoadFromCompoundFile(cf);
 
-      
 
-
-
+                //////////////
+                //////////////
+                //////////////
                 // burda kaldık
 
 
