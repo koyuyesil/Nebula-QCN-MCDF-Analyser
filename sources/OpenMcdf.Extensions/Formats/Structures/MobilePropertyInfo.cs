@@ -8,7 +8,7 @@ using System.ComponentModel;
 
 namespace OpenMcdf.Extensions.Formats.Structures
 {
-    [CategoryAttribute("Mobile Properties Summary"), DescriptionAttribute("Summary info for Qualcomm NV Calibration File (QCN)")]
+   
     public class MobilePropertyInfo
     {
         [CategoryAttribute("Mobile Properties Summary"), DescriptionAttribute("Electronic Serial Number")]

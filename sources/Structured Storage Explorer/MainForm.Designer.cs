@@ -95,7 +95,7 @@
             this.treeView1.HideSelection = false;
             this.treeView1.Location = new System.Drawing.Point(0, 0);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(281, 202);
+            this.treeView1.Size = new System.Drawing.Size(329, 202);
             this.treeView1.TabIndex = 4;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             this.treeView1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.treeView1_MouseUp);
@@ -160,7 +160,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(854, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1000, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -227,7 +227,7 @@
             this.fileNameLabel});
             this.statusStrip1.Location = new System.Drawing.Point(0, 435);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(854, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1000, 22);
             this.statusStrip1.TabIndex = 6;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -251,7 +251,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.propertyGrid1);
-            this.splitContainer1.Size = new System.Drawing.Size(283, 411);
+            this.splitContainer1.Size = new System.Drawing.Size(331, 411);
             this.splitContainer1.SplitterDistance = 204;
             this.splitContainer1.TabIndex = 5;
             // 
@@ -260,7 +260,7 @@
             this.propertyGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.propertyGrid1.Location = new System.Drawing.Point(0, 0);
             this.propertyGrid1.Name = "propertyGrid1";
-            this.propertyGrid1.Size = new System.Drawing.Size(281, 201);
+            this.propertyGrid1.Size = new System.Drawing.Size(329, 201);
             this.propertyGrid1.TabIndex = 0;
             this.propertyGrid1.ToolbarVisible = false;
             // 
@@ -277,8 +277,8 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.tabControl1);
-            this.splitContainer2.Size = new System.Drawing.Size(854, 411);
-            this.splitContainer2.SplitterDistance = 283;
+            this.splitContainer2.Size = new System.Drawing.Size(1000, 411);
+            this.splitContainer2.SplitterDistance = 331;
             this.splitContainer2.TabIndex = 7;
             // 
             // tabControl1
@@ -289,7 +289,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(567, 411);
+            this.tabControl1.Size = new System.Drawing.Size(665, 411);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
@@ -298,7 +298,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(559, 385);
+            this.tabPage1.Size = new System.Drawing.Size(657, 385);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Raw Data";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -313,7 +313,7 @@
             this.hexEditor.Location = new System.Drawing.Point(3, 3);
             this.hexEditor.Name = "hexEditor";
             this.hexEditor.ShadowSelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(60)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
-            this.hexEditor.Size = new System.Drawing.Size(553, 379);
+            this.hexEditor.Size = new System.Drawing.Size(651, 379);
             this.hexEditor.StringViewVisible = true;
             this.hexEditor.TabIndex = 0;
             this.hexEditor.UseFixedBytesPerLine = true;
@@ -372,7 +372,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(854, 457);
+            this.ClientSize = new System.Drawing.Size(1000, 457);
             this.Controls.Add(this.splitContainer2);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);

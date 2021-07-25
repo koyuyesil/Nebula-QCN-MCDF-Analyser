@@ -17,10 +17,7 @@ using OpenMcdf.Extensions;
 using OpenMcdf.Extensions.Formats;
 using System.Linq;
 using System.Collections;
-using QC.QMSLPhone;
-using AtlasPhoneLib;
-using AtlasSerialPortLib;
-using QFIL;
+
 
 namespace StructuredStorageExplorer
 {
@@ -305,6 +302,7 @@ namespace StructuredStorageExplorer
               
                 QCN qCn = new QCN();
                 qCn.LoadFromCompoundFile(cf);
+                
 
 
                 //////////////
@@ -503,9 +501,11 @@ namespace StructuredStorageExplorer
 
                         DataTable ds = new DataTable();
 
-                        ds.Columns.Add("Name", typeof(String));
-                        ds.Columns.Add("Type", typeof(String));
-                        ds.Columns.Add("Value", typeof(String));
+                        ds.Columns.Add("ID", typeof(Int32));
+                        ds.Columns.Add("NAME", typeof(String));
+                        ds.Columns.Add("MAPPING", typeof(String));
+                        ds.Columns.Add("ENCODING", typeof(Type));
+                        ds.Columns.Add("INDEX", typeof(Int16));
                     }
 #endif
                 }
