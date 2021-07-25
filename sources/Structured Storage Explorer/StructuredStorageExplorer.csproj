@@ -102,6 +102,9 @@
       <Link>.editorconfig</Link>
     </None>
     <None Include="app.config" />
+    <None Include="olive.qcn">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -111,6 +114,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="sunny.qcn">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="img\disk.png" />
@@ -119,6 +125,29 @@
     <Content Include="img\stream.png" />
     <Content Include="img\storage.png" />
     <Content Include="lib\Be.Windows.Forms.HexBox.dll" />
+    <Content Include="olive_info.txt" />
+    <Content Include="sunny_inf.txt" />
+    <Content Include="Tools\Qualcomm\DownloadRes.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\Qualcomm\fh_loader.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\Qualcomm\QC.QMSLPhone.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\Qualcomm\QFIL.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\Qualcomm\QMSL_MSVC10R.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\Qualcomm\QMSL_NVTool_MSVC10R.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\Qualcomm\QualCtrl.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

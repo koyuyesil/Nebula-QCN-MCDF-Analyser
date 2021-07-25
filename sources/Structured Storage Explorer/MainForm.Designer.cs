@@ -97,6 +97,7 @@
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(281, 202);
             this.treeView1.TabIndex = 4;
+            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             this.treeView1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.treeView1_MouseUp);
             // 
             // contextMenuStrip1
@@ -296,7 +297,7 @@
             this.tabPage1.Controls.Add(this.hexEditor);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(559, 385);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Raw Data";
@@ -323,7 +324,7 @@
             this.tabPage2.Controls.Add(this.splitContainer3);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(559, 385);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "OLE Properties";
@@ -333,7 +334,7 @@
             // 
             this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer3.Location = new System.Drawing.Point(3, 3);
-            this.splitContainer3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.splitContainer3.Margin = new System.Windows.Forms.Padding(2);
             this.splitContainer3.Name = "splitContainer3";
             this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 

@@ -17,6 +17,10 @@ using OpenMcdf.Extensions;
 using OpenMcdf.Extensions.Formats;
 using System.Linq;
 using System.Collections;
+using QC.QMSLPhone;
+using AtlasPhoneLib;
+using AtlasSerialPortLib;
+using QFIL;
 
 namespace StructuredStorageExplorer
 {
@@ -27,6 +31,8 @@ namespace StructuredStorageExplorer
         public MainForm()
         {
             InitializeComponent();
+
+            
 
 #if !OLE_PROPERTY
             tabControl1.TabPages.Remove(tabPage2);
@@ -451,6 +457,81 @@ namespace StructuredStorageExplorer
             propertyGrid1.SelectedObject = null;
             hexEditor.ByteProvider = null;
         }
-        
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            // Get the node under the mouse cursor.
+            // We intercept both left and right mouse clicks
+            // and set the selected treenode according.
+
+            TreeNode n = treeView1.SelectedNode;
+
+            if (n != null)
+            {
+                if (this.hexEditor.ByteProvider != null && this.hexEditor.ByteProvider.HasChanges())
+                {
+                    if (MessageBox.Show("Do you want to save pending changes ?", "Save changes", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                    {
+                        this.hexEditor.ByteProvider.ApplyChanges();
+                    }
+                }
+
+                treeView1.SelectedNode = n;
+
+
+                // The tag property contains the underlying CFItem.
+                CFItem target = (CFItem)n.Tag;
+                CFStream stream = n.Tag as CFStream;
+
+                if (target.IsStream)
+                {
+                    addStorageStripMenuItem1.Enabled = false;
+                    addStreamToolStripMenuItem.Enabled = false;
+                    importDataStripMenuItem1.Enabled = true;
+                    exportDataToolStripMenuItem.Enabled = true;
+
+#if OLE_PROPERTY    
+                    if (target.Name == "Mobile_Property_Info")
+                    {
+                        PropertySetMobilePropertyInfo mi = new PropertySetMobilePropertyInfo();
+                        byte[] by = stream.GetData();
+                        Stream sy = new MemoryStream(by);
+                        BinaryReader br = new BinaryReader(sy);
+                        mi.Read(br);
+
+                        propertyGrid1.SelectedObject = mi;
+
+                        DataTable ds = new DataTable();
+
+                        ds.Columns.Add("Name", typeof(String));
+                        ds.Columns.Add("Type", typeof(String));
+                        ds.Columns.Add("Value", typeof(String));
+                    }
+#endif
+                }
+            }
+            else
+            {
+                addStorageStripMenuItem1.Enabled = true;
+                addStreamToolStripMenuItem.Enabled = true;
+                importDataStripMenuItem1.Enabled = false;
+                exportDataToolStripMenuItem.Enabled = false;
+            }
+
+
+            if (n != null)
+            {
+                //propertyGrid1.SelectedObject = n.Tag;
+                CFStream targetStream = n.Tag as CFStream;
+                if (targetStream != null)
+                {
+                    this.hexEditor.ByteProvider = new StreamDataProvider(targetStream);
+                }
+                else
+                {
+                    this.hexEditor.ByteProvider = null;
+                }
+            }
+        }
     }
 }
