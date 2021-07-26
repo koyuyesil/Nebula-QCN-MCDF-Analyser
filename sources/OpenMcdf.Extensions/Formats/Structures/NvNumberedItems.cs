@@ -26,7 +26,7 @@ namespace OpenMcdf.Extensions.Formats.Structures
         {
             items = new List<NvNumberedItem>();
         }
-    public void Read(BinaryReader br)
+        public void Read(BinaryReader br)
         {
             while (br.BaseStream.Position != br.BaseStream.Length)
             {
