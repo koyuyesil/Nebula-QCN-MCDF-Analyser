@@ -1,0 +1,8 @@
+		00000023	QCIMS_Xiaomi_Redmi 8_Android9_11/nv/item_files/ims/ims_user_agent
+777C0(489408)	0000007F	ÜRÜN KASA KODU			/nv/item_files/modem/mmode/device_model
+		00000083	XMP				/nv/item_files/modem/mmode/manufacturer_code
+775C0(488896)	00000084	ÜRÜN KODU			/nv/item_files/modem/mmode/manufacturer_name
+76EC0(487104)	00000097	11.0.11.0(PCNMIXM) 		/nv/item_files/modem/mmode/sw_version
+
+
+
