@@ -24,12 +24,12 @@ namespace OpenMcdf.Extensions.Formats.Structures
         public byte MinorVersion { get; set; }
 
         [CategoryAttribute("Pointer"), DescriptionAttribute("Modem Firmware Version string size")]
-        public int ModemFirmwareVersionPointer { get; set; }
+        public int ModemFirmwareVersionLength { get; set; }
 
         [CategoryAttribute("Mobile Properties Summary"), DescriptionAttribute("Modem Firmware version")]
         public string ModemFirmwareVersion { get; set; }
         [CategoryAttribute("Pointer"), DescriptionAttribute("Software Version string size")]
-        public int SoftwareVersionPointer { get; set; }
+        public int SoftwareVersionLength { get; set; }
         [CategoryAttribute("Mobile Properties Summary"), DescriptionAttribute("This file created by this software")]
         public string SoftwareVersion { get; set; }
 
@@ -39,10 +39,10 @@ namespace OpenMcdf.Extensions.Formats.Structures
             MODEM= br.ReadUInt16();
             MajorVersion = br.ReadByte();
             MinorVersion = br.ReadByte();
-            ModemFirmwareVersionPointer= br.ReadUInt16();
-            ModemFirmwareVersion = Encoding.ASCII.GetString(br.ReadBytes(ModemFirmwareVersionPointer));
-            SoftwareVersionPointer = br.ReadUInt16();
-            SoftwareVersion = Encoding.ASCII.GetString(br.ReadBytes(SoftwareVersionPointer));
+            ModemFirmwareVersionLength= br.ReadUInt16();//Pascal String
+            ModemFirmwareVersion = Encoding.ASCII.GetString(br.ReadBytes(ModemFirmwareVersionLength));
+            SoftwareVersionLength = br.ReadUInt16();
+            SoftwareVersion = Encoding.ASCII.GetString(br.ReadBytes(SoftwareVersionLength));
         }
 
 

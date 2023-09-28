@@ -25,20 +25,12 @@ namespace OpenMcdf.Extensions.Formats.Structures
 
         public void Read(BinaryReader br)
         {
-            byte[] A=br.ReadBytes(2);
-            
-
+            byte[] unknownByte=br.ReadBytes(2);
             while (br.BaseStream.Position != br.BaseStream.Length)
             {
                 string yourByteString = Convert.ToString(br.ReadByte(), 2).PadLeft(8, '0');
-
-                DataBits.Add(yourByteString);
-
-                
+                DataBits.Add(yourByteString);  
             }
-            var a=1;
         }
-
-
     }
 }
